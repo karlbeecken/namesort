@@ -1,4 +1,6 @@
 # namesort
 A simple website to sort names.
 
-_Live Version: namesort.dmho.de_
+Required format: `<First Name> <Last Name>, [Position]`
+
+Live Version: [namesort.dmho.de](https://namesort.dmho.de)
