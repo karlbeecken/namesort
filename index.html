@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.0/css/bulma.min.css"
+    integrity="sha256-aPeK/N8IHpHsvPBCf49iVKMdusfobKo2oxF8lRruWJg=" crossorigin="anonymous">
+  <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">
+  <link rel="stylesheet" type="text/css" href="https://unpkg.com/bulma-prefers-dark" />
+
+  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+  <link rel="icon" href="favicon.png" type="image/png">
+  <title>Namesort</title>
+
+  <script>
+    function sort() {
+      input = document.getElementById("input").value;
+      let output = input.split("\n").sort((a, b) => {
+
+        let aNames = a.split(", ")[0].split(" ");
+        let bNames = b.split(", ")[0].split(" ");
+
+        a = aNames[aNames.length - 1];
+        b = bNames[bNames.length - 1];
+
+        if (a > b) {
+          return 1;
+        }
+        if (b > a) {
+          return -1;
+        }
+        return 0;
+      })
+      console.log(output);
+      let str = "";
+      output.forEach((line) => {
+        str += line + "\n"
+      })
+      document.getElementById("input").value = str;
+      document.getElementById("input").classList.add("is-primary");
+    }
+  </script>
+</head>
+
+<body>
+  <div
+    style="width: 100%; height: 3px; background: linear-gradient(90deg, #2fe96f, #2fe9cc); overflow: auto; z-index: -1;">
+  </div>
+  <div id="app">
+    <div class="field">
+      <button class="button is-primary is-large" id="button" onclick="sort()">Sort names! 🎉</button>
+    </div>
+    <div class="field">
+      <textarea class="textarea" type="text" id="input" placeholder="Paste your names here!"></textarea>
+    </div>
+  </div>
+  <p id="footer"><a href="https://github.com/karlbeecken/namesort"><i class="fas fa-code"></i></a> with <i
+      class="fas fa-heart"></i> by <a href="https://github.com/karlbeecken" target="_blank">karlbeecken</a></p>
+  <style>
+    #app {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+      width: 90%;
+    }
+
+    @media only screen and (min-width: 400px) {
+      #app {
+        width: 380px;
+      }
+    }
+
+    #input {
+      margin-top: 20px;
+      text-align: left;
+      font-family: monospace;
+    }
+
+    html {
+      overflow-y: hidden;
+    }
+
+    #footer {
+      position: fixed;
+      left: 0px;
+      bottom: 0px;
+      height: 30px;
+      width: 100%;
+      text-align: center;
+    }
+  </style>
+</body>
+
+</html>
