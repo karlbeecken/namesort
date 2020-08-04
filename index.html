@@ -31,12 +31,12 @@
           return -1;
         }
         return 0;
-      })
+      });
       console.log(output);
       let str = "";
-      output.forEach((line) => {
-        str += line + "\n"
-      })
+      output.forEach((line, i) => {
+        if (output.length > i) str += line + "\n";
+      });
       document.getElementById("input").value = str;
       document.getElementById("input").classList.add("is-primary");
     }
