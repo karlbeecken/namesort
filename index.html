@@ -35,7 +35,11 @@
       console.log(output);
       let str = "";
       output.forEach((line, i) => {
-        if (output.length > i) str += line + "\n";
+        if (output.length - 1 !== i) {
+          str += line + "\n";
+        } else {
+          str += line;
+        }
       });
       document.getElementById("input").value = str;
       document.getElementById("input").classList.add("is-primary");
